@@ -1,7 +1,7 @@
 const express = require('express');
 const app = require('./app'); 
 const mongoose = require('mongoose');
-const refreshAll = require('./createDatabase');
+
 const port = 3000;
 
 // Parse JSON bodies (as sent by API clients)
@@ -16,6 +16,6 @@ const db = mongoose.connection;
 db.on('error', (err) => console.log('Connection error:', err));
 db.once('open', async () => {
     console.log('Connected to the database');
-    await refreshAll();
+
     app.listen(port, () => console.log(`App listening on port ${port}!`)); // Start the server
 });
