@@ -1,6 +1,7 @@
 const express = require('express');
 const app = require('./app'); 
 const mongoose = require('mongoose');
+const refreshAll = require('./createDatabase');
 const port = 3000;
 
 // Parse JSON bodies (as sent by API clients)
