@@ -8,12 +8,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // MongoDB connection string from MongoDB Compass
-const DATABASE_URL = "mongodb+srv://snigdhanandasn:paws081002@cluster0.sfecl.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"; // Make sure the MongoDB Compass URI is correct
+const DATABASE_URL = "mongodb+srv://snigdhanandasn:paws081002@cluster0.sfecl.mongodb.net/subscribers?retryWrites=true&w=majority&appName=Cluster0"; // Make sure the MongoDB Compass URI is correct
 
 mongoose.connect(DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.on('error', (err) => console.log('Connection error:', err));
-db.once('open', () => {
+db.once('open', async () => {
     console.log('Connected to the database');
+    await refreshAll();
     app.listen(port, () => console.log(`App listening on port ${port}!`)); // Start the server
 });

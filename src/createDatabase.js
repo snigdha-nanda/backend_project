@@ -3,7 +3,7 @@ const subscriberModel = require('./models/subscribers');
 const data = require('./data');
 
 // Connect to the MongoDB database using MongoDB Compass connection string
-const DATABASE_URL = "mongodb://localhost:27017/subscribers";
+const DATABASE_URL = "mongodb+srv://snigdhanandasn:paws081002@cluster0.sfecl.mongodb.net/subscribers?retryWrites=true&w=majority&appName=Cluster0";
 mongoose.connect(DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const db = mongoose.connection;
